@@ -2,60 +2,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingHorizontal="15dp"
     android:paddingTop="30dp"
     android:weightSum="12"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:context=".MainActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Digipro"
         android:layout_gravity="center"
-        android:textSize="30sp"
-        android:paddingBottom="15sp"
+        android:textSize="35sp"
+        android:layout_marginBottom="15sp"
         />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_user_circle_regular"
-        android:paddingHorizontal="50dp"
-        android:paddingVertical="15dp"
-        android:cropToPadding="true"
-        android:adjustViewBounds="true"
-        android:contentDescription="Login"
-        />
-
-    <EditText
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/inspection_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="NIK"
-        android:minHeight="48sp"
-        android:paddingVertical="15sp"
-        android:inputType="text" />
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginVertical="5sp"
+        android:layout_weight=".5"
+        android:minHeight="50sp"
+        android:text="Inspection Process" />
 
-    <EditText
+    <Button
+        android:id="@+id/transfers_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:paddingVertical="15sp"
-        android:inputType="numberPassword"
-        android:minHeight="48sp" />
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginVertical="5sp"
+        android:layout_weight=".5"
+        android:minHeight="50sp"
+        android:text="Transfers Process" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/lotcard_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:gravity="right"
-        android:layout_weight="1">
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginVertical="5sp"
+        android:layout_weight=".5"
+        android:minHeight="50sp"
+        android:text="Lotcard Check" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:text="Login" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginVertical="5sp"
+        android:layout_weight=".5"
+        android:minHeight="50sp"
+        android:text="Logout" />
 
 </LinearLayout>

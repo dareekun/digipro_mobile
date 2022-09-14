@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.id.panasonic.digipro">
+    <!-- Internet Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".GlobalValue"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Digipro">
+        android:theme="@style/Theme.Digipro"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".LotCardShow"
+            android:exported="false"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
+        <activity
+            android:name=".LotcardStatus"
+            android:exported="false"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
+        <activity
+            android:name=".ScanTransfers"
+            android:exported="false"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
+        <activity
+            android:name=".ScanInspection"
+            android:exported="false"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
+        <activity
+            android:name=".process_inspection"
+            android:exported="false"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
@@ -16,7 +45,8 @@
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Digipro.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
