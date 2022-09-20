@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="12sp"
-    tools:context=".HomeActivity">
+    tools:context=".process_inspection">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        android:weightSum="12"
+        android:paddingTop="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10sp"
-                android:text="Inspection Card"
+                android:text="@string/inspection_card"
                 android:textSize="30sp" />
 
                 <LinearLayout
@@ -20,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35sp"
                     android:orientation="horizontal"
-                    android:layout_weight="1"
+                    android:baselineAligned="false"
                     android:weightSum="3">
 
                     <LinearLayout
@@ -33,7 +37,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Product Name" />
+                            android:text="@string/product_name" />
 
                         <EditText
                             android:id="@+id/product_name"
@@ -41,10 +45,10 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:inputType="text"
-                            android:hint="Product Name"
+                            android:hint="@string/product_name"
+                            android:autofillHints=""
                             android:minHeight="48sp"  />
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -55,7 +59,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Pcs / Box" />
+                            android:text="@string/pcs_per_box" />
 
                         <EditText
                             android:id="@+id/pcs_per_box"
@@ -63,7 +67,8 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:inputType="number"
-                            android:hint="Pcs / Box"
+                            android:hint="@string/qty"
+                            android:autofillHints=""
                             android:minHeight="48sp" />
                     </LinearLayout>
 
@@ -77,7 +82,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Total Box" />
+                            android:text="@string/total_box" />
 
                         <EditText
                             android:id="@+id/total_box"
@@ -85,7 +90,8 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:inputType="number"
-                            android:hint="Total Box"
+                            android:hint="@string/total_box"
+                            android:autofillHints=""
                             android:minHeight="48sp"  />
                     </LinearLayout>
                 </LinearLayout>
@@ -94,13 +100,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Inpection Date"
+                    android:text="@string/inspection_date"
                     android:textSize="18sp" />
                 <EditText
+                    android:id="@+id/input_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".6"
-                    android:hint="Pick Date"
+                    android:hint="@string/pick_date"
+                    android:autofillHints=""
                     android:inputType="date"
                     android:minHeight="48sp" />
 
@@ -109,13 +117,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Lot Size"
+                    android:text="@string/lot_size"
                     android:textSize="18sp" />
                 <EditText
+                    android:id="@+id/input_lotsize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".6"
-                    android:hint="Lot Size"
+                    android:hint="@string/lot_size"
+                    android:autofillHints=""
+                    android:inputType="number"
+                    android:minHeight="48sp" />
+                <TextView
+                    android:layout_marginTop="15sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/lot_number"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/input_lotnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:hint="@string/lot_number"
+                    android:autofillHints=""
                     android:inputType="number"
                     android:minHeight="48sp" />
 
@@ -124,14 +150,52 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Lot Number"
+                    android:text="@string/shift"
+                    android:textSize="18sp" />
+                <RadioGroup
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RadioButton
+                        android:id="@+id/shift_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/shift1" />
+
+                    <RadioButton
+                        android:id="@+id/shift_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/shift2" />
+
+                    <RadioButton
+                        android:id="@+id/shift_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/shift3" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_marginTop="15sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/section"
                     android:textSize="18sp" />
                 <EditText
+                    android:id="@+id/input_section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".6"
-                    android:hint="Lot Number"
                     android:inputType="number"
+                    android:hint="@string/section"
+                    android:autofillHints="name"
                     android:minHeight="48sp" />
 
                 <TextView
@@ -139,7 +203,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Shift"
+                    android:text="@string/line"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/input_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:inputType="number"
+                    android:autofillHints=""
+                    android:hint="@string/line"
+                    android:minHeight="48sp" />
+                <TextView
+                    android:layout_marginTop="15sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/remark"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/input_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:inputType="number"
+                    android:hint="@string/remark"
+                    android:autofillHints=""
+                    android:minHeight="48sp" />
+
+                <TextView
+                    android:layout_marginTop="15sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/judgement"
                     android:textSize="18sp" />
                 <RadioGroup
                     android:layout_width="fill_parent"
@@ -148,114 +245,35 @@
                     android:weightSum="3">
 
                     <RadioButton
+                        android:id="@+id/radio_ok"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Shift 1" />
+                        android:text="@string/ok" />
 
                     <RadioButton
+                        android:id="@+id/radio_ng"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Shift 2" />
+                        android:text="@string/ng" />
 
                     <RadioButton
+                        android:id="@+id/radio_hold"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Shift 3" />
+                        android:text="@string/hold" />
                 </RadioGroup>
-
-                <TextView
-                    android:layout_marginTop="15sp"
+                <Button
+                    android:layout_marginVertical="15sp"
+                    android:paddingVertical="10sp"
+                    android:id="@+id/scan_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="Section"
-                    android:textSize="18sp" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".6"
-                    android:hint="Section"
-                    android:inputType="number"
-                    android:minHeight="48sp" />
-
-                <TextView
-                    android:layout_marginTop="15sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="Section"
-                    android:textSize="18sp" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".6"
-                    android:hint="Section"
-                    android:inputType="number"
-                    android:minHeight="48sp" />
-
-                <TextView
-                    android:layout_marginTop="15sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="Section"
-                    android:textSize="18sp" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".6"
-                    android:hint="Section"
-                    android:inputType="number"
-                    android:minHeight="48sp" />
-
-                <TextView
-                    android:layout_marginTop="15sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="Judgement"
-                    android:textSize="18sp" />
-                <RadioGroup
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="OK" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="NG" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="HOLD" />
-                </RadioGroup>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15sp"
-                    android:layout_weight=".5"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-                    <Button
-                        android:id="@+id/scan_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:minHeight="48sp"
-                        android:text="Process" />
-                </LinearLayout>
-</LinearLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:layout_gravity="center"
+                    android:minHeight="50sp"
+                    android:text="@string/process" />
+    </LinearLayout>
+</ScrollView>

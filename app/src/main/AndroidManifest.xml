@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Digipro"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ShowInspection"
+            android:exported="false" />
+        <activity
             android:name=".LotCardShow"
             android:exported="false"
             android:theme="@style/Theme.Digipro.NoActionBar" />

@@ -1,16 +1,23 @@
 package co.id.panasonic.digipro
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.Gravity
+import android.widget.TableLayout
+import android.widget.TableRow
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import org.json.JSONArray
 import org.json.JSONObject
 
 class LotCardShow : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lot_card_show)
+
         val dataLotcard = getIntent().getStringExtra("data")
-        val data = JSONObject(dataLotcard.toString())
+        val data     = JSONObject(dataLotcard.toString())
+        val parts    = JSONArray(data.get("parts").toString())
         val model_no = findViewById<TextView>(R.id.model_modifier);
         val lot_no   = findViewById<TextView>(R.id.lotno_modifier);
         val shift    = findViewById<TextView>(R.id.shift_modifier);
@@ -25,6 +32,24 @@ class LotCardShow : AppCompatActivity() {
         val name_value2  = findViewById<TextView>(R.id.name_modifier2);
         val judgement    = findViewById<TextView>(R.id.status_product);
         val ceker        = findViewById<TextView>(R.id.checker_product);
+
+        val masterTable = findViewById<TableLayout>(R.id.data_table);
+
+        for (i in 0 until parts.length()) {
+            val tvl = TextView(this)
+            val tvr = TextView(this)
+            val row = TableRow(this)
+            val params: TableRow.LayoutParams = TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f)
+            tvl.setText(parts.getJSONObject(i).get("parts").toString())
+            tvr.setText(parts.getJSONObject(i).get("lot_parts").toString())
+            tvl.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+            tvr.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+            tvr.layoutParams = params
+            tvr.gravity = Gravity.RIGHT
+            row.addView(tvl)
+            row.addView(tvr)
+            masterTable.addView(row)
+        }
 
         model_no.setText(": " + data.get("model_no").toString())
         lot_no.setText(": " + data.get("lotno").toString())

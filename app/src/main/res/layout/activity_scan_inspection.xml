@@ -50,6 +50,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Scan"
+            android:backgroundTint="@color/blue"
             />
     </LinearLayout>
 </LinearLayout>

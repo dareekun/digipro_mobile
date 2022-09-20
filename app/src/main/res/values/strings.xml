@@ -9,4 +9,34 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!--  Valuable String  -->
+    <string name="nik">Nik</string>
+    <string name="pin">Pin</string>
+    <string name="login">Login</string>
+    <string name="process">Process</string>
+    <string name="inspection_card">Inspection Card</string>
+    <string name="product_name">Product Name</string>
+    <string name="pcs_per_box">Packing</string>
+    <string name="qty">Qty</string>
+    <string name="dummy">Dummy</string>
+    <string name="value">Value</string>
+    <string name="total_box">Total Box</string>
+    <string name="inspection_date">Inspection Date</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="lot_size">Lot Size</string>
+    <string name="lot_number">Lot Number</string>
+    <string name="shift">Shift</string>
+    <string name="shift1">Shift 1</string>
+    <string name="shift2">Shift 2</string>
+    <string name="shift3">Shift 3</string>
+    <string name="section">Section</string>
+    <string name="line">Line</string>
+    <string name="remark">Remark</string>
+    <string name="judgement">Judgement</string>
+    <string name="status">Status</string>
+    <string name="ok">OK</string>
+    <string name="ng">NG</string>
+    <string name="hold">HOLD</string>
+    <string name="chekerby">Checked By</string>
+    <string name="print">Print</string>
 </resources>

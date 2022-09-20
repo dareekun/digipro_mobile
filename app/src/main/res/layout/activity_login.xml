@@ -11,12 +11,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Digipro"
+        android:text="@string/app_name"
         android:layout_gravity="center"
         android:textSize="30sp"
         android:paddingBottom="15sp"
         />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,13 +24,12 @@
         android:paddingVertical="15dp"
         android:cropToPadding="true"
         android:adjustViewBounds="true"
-        android:contentDescription="Login"
         />
     <EditText
         android:id="@+id/input_nik"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="NIK"
+        android:hint="@string/nik"
         android:minHeight="50sp"
         android:paddingVertical="15sp"
         android:inputType="number" />
@@ -39,26 +37,15 @@
         android:id="@+id/input_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/pin"
         android:paddingVertical="15sp"
         android:inputType="numberPassword"
         android:minHeight="50sp" />
-
-    <LinearLayout
+    <Button
+        android:id="@+id/login_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:gravity="right"
-        android:layout_weight="1">
-
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:text="Login" />
-    </LinearLayout>
+        android:layout_height="0sp"
+        android:layout_weight="4"
+        android:text="@string/login" />
 
 </LinearLayout>

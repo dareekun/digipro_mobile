@@ -26,14 +26,18 @@
         android:gravity="center"
         android:paddingHorizontal="5sp"
         android:layout_weight=".5"
+        android:weightSum="2"
         android:layout_marginBottom="15sp">
         <EditText
             android:id="@+id/lotcard_input"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:minHeight="48sp"
             android:inputType="text"
             android:hint="QR Code"
+            android:minWidth="200sp"
+            android:layout_weight="1.8"
+            android:layout_marginRight="15sp"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -49,7 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Reset"
+            android:text="Check"
+            android:backgroundTint="@color/teal_700"
             />
     </LinearLayout>
 </LinearLayout>
