@@ -15,40 +15,77 @@
         android:theme="@style/Theme.Digipro"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ShowInspection"
+            android:name=".QtyModifier"
+            android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Digipro.NoActionBar"/>
+        <activity
+            android:name=".ChangeInspectionData"
             android:exported="false" />
+        <activity
+            android:name=".TransfersProcess"
+            android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
+        <activity
+            android:name=".SettingMenu"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
+        <activity
+            android:name=".ShowInspection"
+            android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".LotCardShow"
             android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".LotcardStatus"
             android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".ScanTransfers"
             android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".ScanInspection"
             android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".process_inspection"
             android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Digipro.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import co.id.panasonic.digipro.GlobalValue.Companion.depart
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -23,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
         showButton.setOnClickListener {
             val volleyQueue = Volley.newRequestQueue(this)
-            val url = "http://158.118.35.160/api/login"
+            val url = GlobalValue.server + "login"
             val params = JSONObject()
             params.put("username", username.text)
             params.put("password", password.text)
@@ -33,11 +34,12 @@ class LoginActivity : AppCompatActivity() {
                     val status = response.get("status")
                     if (status == 200) {
                         token = response.get("token").toString()
+                        depart = response.get("depart").toString()
                         val intent = Intent(this, MainActivity::class.java)
                         intent.putExtra("name_user", response.get("user").toString())
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this, "Login Failed, Please Check Your NIK and PIN", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, response.get("message").toString(), Toast.LENGTH_SHORT).show()
                     }
                 },
                 { error ->

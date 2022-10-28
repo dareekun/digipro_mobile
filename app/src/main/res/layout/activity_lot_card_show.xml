@@ -6,7 +6,7 @@
     tools:context=".LotCardShow">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="15dp"
         android:weightSum="12"
@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lotcard"
+        android:text="@string/lotcard"
         android:layout_gravity="center"
         android:textSize="40sp"
         android:layout_marginBottom="25sp"
@@ -33,17 +33,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Model No"
+                android:text="@string/model_no"
                 android:textSize="25sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lot No"
+                android:text="@string/lot_number"
                 android:textSize="25sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shift"
+                android:text="@string/shift"
                 android:textSize="25sp"/>
         </LinearLayout>
         <LinearLayout
@@ -82,16 +82,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Part Name"
+                android:text="@string/part_name"
                 android:layout_weight="1"
                 android:textSize="25sp"/>
             <TextView
                 android:id="@+id/reference_right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:gravity="end"
                 android:layout_weight="1"
-                android:text="Lot Part"
+                android:text="@string/lot_part"
                 android:textSize="25sp"/>
         </TableRow>
     </TableLayout>
@@ -102,7 +102,7 @@
             android:layout_marginTop="30sp">
             <TableRow>
                 <TextView
-                    android:text="Input"
+                    android:text="@string/fg"
                     android:textSize="25sp"
                     android:minWidth="100sp"
                     android:layout_width="wrap_content"
@@ -212,5 +212,16 @@
             android:textSize="25sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/print_lotcard"
+            android:layout_marginVertical="15sp"
+            android:paddingVertical="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:minHeight="50sp"
+            android:text="@string/print" />
     </LinearLayout>
 </ScrollView>

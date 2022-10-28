@@ -1,95 +1,72 @@
 package co.id.panasonic.digipro
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 
 class process_inspection : AppCompatActivity() {
-    val dataLotcard = getIntent().getStringExtra("data")
-    val data     = JSONObject(dataLotcard.toString())
+    var radioval: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_process_inspection)
-
-        val resetBtn = findViewById<Button>(R.id.reset_input_lotcard);
-        val prodName = findViewById<EditText>(R.id.product_name);
+        val data     = JSONObject(getIntent().getStringExtra("data").toString())
+        val procBtn  = findViewById<Button>(R.id.process_inpection_data);
         val pcsBox   = findViewById<EditText>(R.id.pcs_per_box);
         val lotNumbr = findViewById<EditText>(R.id.input_lotnumber);
-        val section  = findViewById<EditText>(R.id.input_section);
-        val line     = findViewById<EditText>(R.id.input_line);
-        prodName.setText(data.get("model_no").toString());
+        val model_no = findViewById<TextView>(R.id.model_number_inspection);
         pcsBox.setText(data.get("packing").toString());
         lotNumbr.setText(data.get("lotno").toString());
-        section.setText(data.get("section").toString());
-        line.setText(data.get("line").toString());
-        prodName.setEnabled(false);
+        model_no.setText(data.get("model_no").toString());
         lotNumbr.setEnabled(false);
-        section.setEnabled(false);
-        line.setEnabled(false);
+        val rg = findViewById<RadioGroup>(R.id.radio_group1)
 
-        resetBtn.setOnClickListener {
+        rg.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.radio_ok -> {
+                    radioval = 1
+                }
+                R.id.radio_ng -> {
+                    radioval = 2
+                }
+                R.id.radio_hold -> {
+                    radioval = 3
+                }
+            }
+        }
+        procBtn.setOnClickListener {
             go()
         }
     }
 
     protected fun focused(input: String) {
-        if (input == "pcs") {
+        if (input == "pcs_box") {
             findViewById<EditText>(R.id.pcs_per_box).requestFocus();
         }
-        if (input == "total_box") {
+        if (input == "totsbox") {
             findViewById<EditText>(R.id.total_box).requestFocus();
         }
-        if (input == "input_date") {
-            findViewById<EditText>(R.id.input_date).requestFocus();
-        }
-        if (input == "lot_size") {
+        if (input == "lotsize") {
             findViewById<EditText>(R.id.input_lotsize).requestFocus();
         }
-        if (input == "remark") {
-            findViewById<EditText>(R.id.input_remark).requestFocus();
-        }
-    }
-    protected fun go() {
-        val volleyQueue = Volley.newRequestQueue(this)
-        val url = "http://158.118.35.160/api/processinspection_mobile"
-        val params = JSONObject()
-        params.put("barcode", data.get("barcode").toString())
-        params.put("pcs_box", findViewById<EditText>(R.id.pcs_per_box).text)
-        params.put("totsbox", findViewById<EditText>(R.id.total_box).text)
-        params.put("inpdate", findViewById<EditText>(R.id.input_date).text)
-        params.put("lotsize", findViewById<EditText>(R.id.input_lotsize).text)
-        params.put("remarks", findViewById<EditText>(R.id.input_remark).text)
-        params.put("token", GlobalValue.token)
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.POST, url, params,
-            { response ->
-                val status = response.get("status")
-                if (status == 200) {
-                    showinspection()
-                } else {
-                    focused(response.get("types").toString())
-                    Toast.makeText(this, "Opps Looks Like Something Wrong", Toast.LENGTH_SHORT).show()
-                }
-            },
-            { error ->
-                Toast.makeText(this, "connection Fail : ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
-            }
-        )
-        volleyQueue.add(jsonObjectRequest)
     }
 
-    protected fun showinspection() {
+    protected fun go() {
+        val data     = JSONObject(getIntent().getStringExtra("data").toString())
         val volleyQueue = Volley.newRequestQueue(this)
-        val url = "http://158.118.35.160/api/showinspection_mobile"
+        val url = GlobalValue.server + "processinspection_mobile"
         val params = JSONObject()
         params.put("id", data.get("barcode").toString())
+        params.put("model_no", data.get("model_no").toString())
+        params.put("pcs_box", findViewById<EditText>(R.id.pcs_per_box).text)
+        params.put("totsbox", findViewById<EditText>(R.id.total_box).text)
+        params.put("lotsize", findViewById<EditText>(R.id.input_lotsize).text)
+        params.put("remarks", findViewById<EditText>(R.id.input_remark).text)
+        params.put("judgeme", radioval)
         params.put("token", GlobalValue.token)
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.POST, url, params,
@@ -99,22 +76,20 @@ class process_inspection : AppCompatActivity() {
                     val intent = Intent(this, ShowInspection::class.java)
                     intent.putExtra("data", response.get("data").toString())
                     startActivity(intent)
+                } else if (status == 502) {
+                    focused(response.get("type").toString())
+                    Toast.makeText(this, response.get("message").toString(), Toast.LENGTH_SHORT).show()
+                } else if (status == 403) {
+                    GlobalValue.token = "not_login"
+                    startActivity(Intent(this, LoginActivity::class.java))
                 } else {
-                    focused(response.get("types").toString())
-                    Toast.makeText(this, "Opps Looks Like Something Wrong", Toast.LENGTH_SHORT).show()
-                }
+                    Toast.makeText(this, response.get("message").toString(), Toast.LENGTH_SHORT).show()
+            }
             },
             { error ->
                 Toast.makeText(this, "connection Fail : ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
             }
         )
         volleyQueue.add(jsonObjectRequest)
-    }
-
-    override fun onResume() {
-        if (Integer.valueOf(data.get("status").toString()) >= 1) {
-            showinspection()
-        }
-        super.onResume()
     }
 }

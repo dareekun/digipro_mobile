@@ -1,4 +1,7 @@
 <resources>
+
+    <string name="server">Digipro</string>
+
     <string name="app_name">Digipro</string>
     <string name="title_activity_home">HomeActivity</string>
     <!-- Strings used for fragments for navigation -->
@@ -9,10 +12,20 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--  Button String  -->
+    <string name="inspection_process">Inspection Process</string>
+    <string name="transfers_process">Transfers Process</string>
+    <string name="lotcard_check">Lotcard Check</string>
+    <string name="process_transaction">Process Transaction</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
     <!--  Valuable String  -->
     <string name="nik">Nik</string>
     <string name="pin">Pin</string>
     <string name="login">Login</string>
+    <string name="lotcard">Lotcard</string>
+    <string name="model_no">Model No.</string>
     <string name="process">Process</string>
     <string name="inspection_card">Inspection Card</string>
     <string name="product_name">Product Name</string>
@@ -30,13 +43,22 @@
     <string name="shift2">Shift 2</string>
     <string name="shift3">Shift 3</string>
     <string name="section">Section</string>
+    <string name="part_name">Part Name</string>
+    <string name="packing">Packing</string>
+    <string name="lot_part">Lot Part</string>
     <string name="line">Line</string>
     <string name="remark">Remark</string>
     <string name="judgement">Judgement</string>
     <string name="status">Status</string>
+    <string name="fg">FG</string>
     <string name="ok">OK</string>
     <string name="ng">NG</string>
     <string name="hold">HOLD</string>
     <string name="chekerby">Checked By</string>
     <string name="print">Print</string>
+    <string name="transfers">Transfers</string>
+    <string name="date">Date</string>
+    <string name="name">Name</string>
+    <string name="revise">Revise</string>
+    <string name="input_qty">Input Qty</string>
 </resources>

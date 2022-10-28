@@ -33,22 +33,23 @@ class LotcardStatus : AppCompatActivity() {
     }
     protected fun go() {
         val volleyQueue = Volley.newRequestQueue(this)
-        val url = "http://158.118.35.160/api/lotcard_mobile"
+        val url = GlobalValue.server + "lotcard_mobile"
         val params = JSONObject()
         params.put("id", findViewById<EditText>(R.id.lotcard_input).text)
         params.put("token", token)
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.POST, url, params,
             { response ->
-                val status = response.get("status")
-                if (status == 200) {
+                if (response.get("status") == 200) {
                     val intent = Intent(this, LotCardShow::class.java)
                     intent.putExtra("data", response.get("data").toString())
                     startActivity(intent)
+                } else if (response.get("status") == 403) {
+                    token = "not_login"
+                    GlobalValue.depart = "department"
+                    startActivity(Intent(this, LoginActivity::class.java))
                 } else {
                     Toast.makeText(this, "Opps Looks Like Something Wrong", Toast.LENGTH_SHORT).show()
-                    Log.i("Token Value", token)
-                    Log.i("Status Value", response.get("status").toString())
                 }
             },
             { error ->

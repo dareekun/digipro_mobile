@@ -19,6 +19,7 @@
             />
 
         <TextView
+            android:id="@+id/nopro_inspection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -44,6 +45,7 @@
                     android:gravity="center"
                     android:text="@string/pcs_per_box" />
                 <TextView
+                    android:id="@+id/packing_inspection"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -61,6 +63,7 @@
                     android:gravity="center"
                     android:text="@string/total_box" />
                 <TextView
+                    android:id="@+id/tobox_inspection"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -216,7 +219,9 @@
                     android:textSize="18sp" />
             </TableRow>
         </TableLayout>
+
         <Button
+            android:id="@+id/print_inspection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="15sp"
