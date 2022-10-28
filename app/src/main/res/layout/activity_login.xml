@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_user_circle_regular"
-        android:paddingHorizontal="50dp"
+        android:paddingHorizontal="45dp"
         android:paddingVertical="15dp"
         android:cropToPadding="true"
         android:adjustViewBounds="true"
@@ -44,8 +44,7 @@
     <Button
         android:id="@+id/login_button"
         android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="4"
+        android:layout_height="75dp"
         android:text="@string/login" />
 
 </LinearLayout>

@@ -18,6 +18,7 @@
     <string name="transfers_process">Transfers Process</string>
     <string name="lotcard_check">Lotcard Check</string>
     <string name="process_transaction">Process Transaction</string>
+    <string name="change_password">Change Password</string>
     <string name="setting">Setting</string>
     <string name="logout">Logout</string>
     <!--  Valuable String  -->
@@ -61,4 +62,9 @@
     <string name="name">Name</string>
     <string name="revise">Revise</string>
     <string name="input_qty">Input Qty</string>
+    <string name="qr_code">QR Code</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="save_password">Save Password</string>
 </resources>

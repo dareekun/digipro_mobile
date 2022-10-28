@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val menuSuper     = findViewById<Button>(R.id.menu_super);
-        val generatedata   = findViewById<Button>(R.id.data_generate);
+        val generatedata  = findViewById<Button>(R.id.data_generate);
+        val changepass    = findViewById<Button>(R.id.change_password);
         val logoutProcess = findViewById<Button>(R.id.logout_button);
         if (depart == "Quality Control") {
             menuSuper.setText("Inspection Process")
@@ -36,13 +37,15 @@ class MainActivity : AppCompatActivity() {
         generatedata.setOnClickListener {
             data_transaction()
         }
+        changepass.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
         logoutProcess.setOnClickListener {
             depart = "department"
             token  = "not_login"
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
-
 
     protected fun data_transaction() {
         val volleyQueue = Volley.newRequestQueue(this)
